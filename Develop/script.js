@@ -1,7 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-$(function () {
+//$(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -22,9 +22,9 @@ $(function () {
   // TODO: Add code to display the current date in the header of the page.
   var todayDate = moment().format('dddd, MMM Do YYYY');
   $("#currentDay").text(todayDate);
-});
 
-$(document).ready(function (){
+
+$(document).ready(function () {
     $(".saveBtn").on("click", function(){
 
       var text = $(this).siblings(".description").val();
@@ -33,31 +33,42 @@ $(document).ready(function (){
       localStorage.setItem(time, text);
     }) 
 
-    
-    
-    function timeTrack(){
+      function timeTrack() {
       var timenow = moment().hour();
       
+      $(".time-block").each(function (){
       var blocktime = parseInt($(this).attr("id").split("hour")[1]);
       
-      if (blovktime < timenow){
+      if (blocktime < timenow){
         $(this).removeClass("future");
         $(this).removeClass("present");
         $(this).addClass("past");
       }
-
-    }
+      else if
+          (blocktime === timenow){
+          $(this).removeClass("future");
+          $(this).removeClass("past");
+          $(this).addClass("present");
+      }
+      else {
+          $(this).removeClass("past");
+          $(this).removeClass("present");
+          $(this).addClass("future");
+      }
+    })
+}
+  
     $("#hour-8 .description").val(localStorage.getItem("hour8"));
     $("#hour-9 .description").val(localStorage.getItem("hour9"));
     $("#hour-10 .description").val(localStorage.getItem("hour10"));
     $("#hour-11 .description").val(localStorage.getItem("hour11"));
     $("#hour-12 .description").val(localStorage.getItem("hour12"));
-    $("#hour-1 .description").val(localStorage.getItem("hour-1"));
-    $("#hour-2 .description").val(localStorage.getItem("hour2"));
-    $("#hour-3 .description").val(localStorage.getItem("hour3"));
-    $("#hour-4 .description").val(localStorage.getItem("hour4"));
-    $("#hour-5 .description").val(localStorage.getItem("hour5"));
+    $("#hour-13 .description").val(localStorage.getItem("hour-13"));
+    $("#hour-14 .description").val(localStorage.getItem("hour14"));
+    $("#hour-15 .description").val(localStorage.getItem("hour15"));
+    $("#hour-16 .description").val(localStorage.getItem("hour16"));
+    $("#hour-17 .description").val(localStorage.getItem("hour17"));
 
-
+ timeTrack();
 
 })
