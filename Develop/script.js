@@ -24,7 +24,7 @@ $(function () {
   $("#currentDay").text(todayDate);
 });
 
-$(document).readyState(function (){
+$(document).ready(function (){
     $(".saveBtn").on("click", function(){
 
       var text = $(this).siblings(".description").val();
@@ -32,12 +32,20 @@ $(document).readyState(function (){
 
       localStorage.setItem(time, text);
     }) 
+
+    
     
     function timeTrack(){
       var timenow = moment().hour();
-      $('.time-block').each(function(){
-        
-      })
+      
+      var blocktime = parseInt($(this).attr("id").split("hour")[1]);
+      
+      if (blovktime < timenow){
+        $(this).removeClass("future");
+        $(this).removeClass("present");
+        $(this).addClass("past");
+      }
+
     }
     $("#hour-8 .description").val(localStorage.getItem("hour8"));
     $("#hour-9 .description").val(localStorage.getItem("hour9"));
