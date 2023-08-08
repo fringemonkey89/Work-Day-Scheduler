@@ -13,7 +13,7 @@ A calendar application that allows a user to save events for each hour of the da
    
 ## Screenshot
 
-![](./screenshot1.png)
+![](./Assets/screenshot1.png)
 
 ## Installation
    N/A
@@ -22,7 +22,7 @@ A calendar application that allows a user to save events for each hour of the da
    N/A
 
 ## Website Link
-
+   https://fringemonkey89.github.io/Work-Day-Scheduler/
 
 ## License
  MIT License
